@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: none !important;
+}
+
+/* Re-enable transitions after load */
+html.loaded * {
+  transition: all 0.3s ease !important;
+}
+
+/* 🌌 Global Theme Setup */
+body {
+  @apply font-sans text-gray-900 dark:text-white transition-colors duration-500;
+  @apply bg-[#a8f0f7] dark:bg-[#1a1330]; /* Light: soft gray, Dark: galaxy tone */
+}
+
+/* 💠 Glassmorphism Card */
+.glass-card {
+  @apply backdrop-blur-lg border rounded-xl p-4 transition hover:shadow-xl;
+  @apply bg-white/60 dark:bg-white/10 border-white/50 dark:border-white/20 text-gray-900 dark:text-white;
+}
+
+/* 🧊 Glassmorphism Modal */
+.glass-modal {
+  @apply backdrop-blur-xl border rounded-2xl p-6 shadow-2xl;
+  @apply bg-white/70 dark:bg-white/10 border-white/50 dark:border-white/30 text-gray-900 dark:text-white;
+}
+
+/* 🧾 Input Field */
+.input {
+  @apply w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500;
+  @apply bg-white/60 dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/50 border-gray-300 dark:border-white/20;
+}
+
+/* 🔘 Buttons */
+.btn {
+  @apply px-4 py-2 rounded-full font-medium transition duration-200;
+}
+
+/* 🌈 Button Variants */
+.btn-primary {
+  @apply btn text-white bg-purple-600 hover:bg-purple-700;
+}
+
+.btn-secondary {
+  @apply btn border text-gray-900 dark:text-white border-gray-300 dark:border-white/20 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20;
+}
+
+/* 🪐 Floating Animation */
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+/* 🎯 Slide-In Animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.slide-in-delay {
+  animation: slideIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* 🏷️ Category Chip */
+.category-chip {
+  @apply px-3 py-1 rounded-full text-sm transition-transform hover:scale-105;
+  @apply bg-white/30 dark:bg-white/10 border border-gray-300 dark:border-white/20 text-gray-800 dark:text-white;
+}
+
+/* 🛡️ Status Badge */
+.status-badge {
+  @apply px-2 py-1 rounded-full text-xs font-semibold;
+}
+
+.status-pending {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-approved {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-rejected {
+  @apply bg-red-100 text-red-800;
+}
+
+.status-resolved {
+  @apply bg-purple-100 text-purple-800;
+}
+
+/* Make the calendar icon white in dark mode */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
